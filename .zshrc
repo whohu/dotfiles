@@ -1,6 +1,6 @@
 ######################################
-## History
-#######################################
+# History
+########################################
 HISTFILE=~/.zsh_history   # ヒストリを保存するファイル
 HISTSIZE=10000            # メモリに保存されるヒストリの件数
 SAVEHIST=10000            # 保存されるヒストリの件数
@@ -10,9 +10,9 @@ setopt hist_ignore_dups   # 直前と同じコマンドはヒストリに追加�
 setopt share_history      # 他のシェルのヒストリをリアルタイムで共有する
 setopt hist_reduce_blanks # 余分なスペースを削除してヒストリに保存する
 
-#######################################
-## AutoComplete
-#######################################
+######################################
+# AutoComplete
+######################################
 autoload -U compinit; compinit # 補完機能を有効にする
 setopt auto_list               # 補完候補を一覧で表示する(d)
 setopt auto_menu               # 補完キー連打で補完候補を順に表示する(d)
@@ -27,9 +27,9 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 補完時に大文字小�
 # VCSの情報を取得するzshの便利関数 vcs_infoを使う
 autoload -Uz vcs_info
 precmd() {
-    psvar=()
-    LANG=en_US.UTF-8 vcs_info
-    psvar[1]=$vcs_info_msg_0_
+psvar=()
+LANG=en_US.UTF-8 vcs_info
+psvar[1]=$vcs_info_msg_0_
 }
 PROMPT=$'%2F%n@%m%f %3F%~%f%1v\n%# '
 
@@ -50,10 +50,15 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 #######################################
 # Alias
 #######################################
-#ctagsはMacVimに同梱されているctagsを使用する
-alias ctags='/Applications/MacVim.app/Contents/MacOS/ctags "$@"'
+alias safari="open -a Safari"
+alias firefox="open -a Firefox"
+alias chrome="open -a Google\ Chrome"
+alias prev="open -a Preview"
+alias macdown="open -a MacDown"
 #MacVimのタブで開く
 alias mvim="mvim --remote-tab-silent"
+#MacVimに同梱されているctagsを使用
+alias ctags='/Applications/MacVim.app/Contents/MacOS/ctags "$@"'
 alias his='history'
 alias g='git'
 alias gb='git branch'
