@@ -32,6 +32,9 @@ LANG=en_US.UTF-8 vcs_info
 psvar[1]=$vcs_info_msg_0_
 }
 PROMPT=$'%2F%n@%m%f %3F%~%f%1v\n%# '
+# タブ名にカレントディレクトリを表示する
+echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"$2}'| rev)\007"
+function chpwd() { echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"$2}'| rev)\007"}
 
 #######################################
 # Color
@@ -91,4 +94,4 @@ alias rm='rm -i'
 # UseEditor
 #######################################
 export SVN_EDITOR=vim
-export GIT_EDITORA=vim
+export GIT_EDITOR=vim

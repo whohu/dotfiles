@@ -9,6 +9,8 @@ if has('gui_macvim')
     set guifont=Menlo:h12
     set lines=90 columns=200
     set guioptions-=T
+    set fuoptions=maxvert,maxhorz
+    au GUIEnter * set fullscreen
 endif
 
 colorscheme mikucolor
@@ -31,8 +33,6 @@ set matchtime=3
 set laststatus=2
 "空白文字を表示
 set list
-"入力モード切り替え時に自動的に英語入力に切り替える機能をオフ
-set noimdisableactivate
 "タブ，行末等の不可視文字を表示
 set listchars=tab:>\ ,eol:~
 "全角スペースと行末の半角スペースを赤色へ
