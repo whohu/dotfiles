@@ -138,3 +138,7 @@ nnoremap <C-tab> :tabn<CR>
 nnoremap <C-S-tab> :tabN<CR>
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
+"括弧自動補完
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap [<Enter> []<Left><CR><ESC><S-o>
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
