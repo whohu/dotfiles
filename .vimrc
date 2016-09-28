@@ -1,17 +1,36 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin neobundle
 """"""""""""""""""""""""""""""""""""""""""""""""""
-if has('vim_starting')
-  set nocompatible
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+" Note: Skip initialization for vim-tiny or vim-small.
+if 0 | endif
+
+if &compatible
+  set nocompatible               " Be iMproved
 endif
-call neobundle#rc(expand('~/.vim/bundle/'))
+
+" Required:
+set runtimepath+=~/.vim/bundle/neobundle.vim/
+
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" My Bundles here:
+" Refer to |:NeoBundle-examples|.
+" Note: You don't set neobundle setting in .gvimrc!
+
 NeoBundle 'Shougo/neocomplcache.vim'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-repeat'
 NeoBundle 'whohu/mikucolor.vim'
+
+call neobundle#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin neocomplcache
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -70,7 +89,7 @@ set termencoding=utf-8
 scriptencoding cp932
 set fileformats=unix,dos,mac
 set fileencoding=japan
-set fileencodings=iso-2022-jp,euc-jp,utf-8,ucs2le,ucs-2
+set fileencodings=iso-2022-jp-3,iso-2022-jp,euc-jisx0213,euc-jp,utf-8,ucs-bom,eucjp-ms,cp932,ucs2le,ucs-2
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " File
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -109,7 +128,7 @@ set formatoptions=q
 set cindent
 set shiftwidth=2
 set tabstop=2
-set expandtab
+"set expandtab
 set softtabstop=2
 set backspace=indent,eol,start
 set whichwrap=b,s,h,l,<,>,[,]
@@ -121,6 +140,9 @@ nnoremap <C-tab> :tabn<CR>
 nnoremap <C-S-tab> :tabN<CR>
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
+" 対応括弧の自動入力
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap [<Enter> []<Left><CR><ESC><S-o>
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
+" Ctrl-pでレジスタに格納せず連続貼り付け
+vnoremap <silent> <C-p> "0p<CR>
