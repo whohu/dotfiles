@@ -58,8 +58,11 @@ alias firefox="open -a Firefox"
 alias chrome="open -a Google\ Chrome"
 alias prev="open -a Preview"
 alias macdown="open -a MacDown"
+#alias mvim="mvim --remote-tab-silent"
 #MacVimのタブで開く
-alias mvim="mvim --remote-tab-silent"
+alias mvim='/Applications/MacVim.app/Contents/bin/mvim --remote-tab-silent "$@"'
+#MacVimに同梱されているmvimdiff
+alias mvimdiff='/Applications/MacVim.app/Contents/bin/mvimdiff "$@"'
 #MacVimに同梱されているctagsを使用
 alias ctags='/Applications/MacVim.app/Contents/MacOS/ctags "$@"'
 alias his='history'

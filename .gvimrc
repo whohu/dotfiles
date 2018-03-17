@@ -5,6 +5,6 @@ if has('gui_macvim')
     set lines=90 columns=200
     set guioptions-=T
     set fuoptions=maxvert,maxhorz
-    au GUIEnter * set fullscreen
+    "au GUIEnter * set fullscreen
 endif
 colorscheme mikucolor
